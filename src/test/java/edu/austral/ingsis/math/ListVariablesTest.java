@@ -13,7 +13,9 @@ public class ListVariablesTest {
   /** Case 1 + 6 */
   @Test
   public void shouldListVariablesFunction1() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Addition(new Number(1), new Number(6));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, empty());
   }
@@ -21,7 +23,9 @@ public class ListVariablesTest {
   /** Case 12 / div */
   @Test
   public void shouldListVariablesFunction2() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Division(new Number(12), new Variable("div"));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, containsInAnyOrder("div"));
   }
@@ -29,7 +33,10 @@ public class ListVariablesTest {
   /** Case (9 / x) * y */
   @Test
   public void shouldListVariablesFunction3() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Multiplication(new Division(new Number(9),
+            new Variable("x")), new Variable("y"));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, containsInAnyOrder("x", "y"));
   }
@@ -37,7 +44,10 @@ public class ListVariablesTest {
   /** Case (27 / a) ^ b */
   @Test
   public void shouldListVariablesFunction4() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Exponentiation(new Division(new Number(27),
+            new Variable("a")), new Variable("b"));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, containsInAnyOrder("a", "b"));
   }
@@ -45,7 +55,9 @@ public class ListVariablesTest {
   /** Case z ^ (1/2) */
   @Test
   public void shouldListVariablesFunction5() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Root(new Variable("z"));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, containsInAnyOrder("z"));
   }
@@ -53,7 +65,9 @@ public class ListVariablesTest {
   /** Case |value| - 8 */
   @Test
   public void shouldListVariablesFunction6() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Subtraction(new Absolute(new Variable("value")), new Number(8));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, containsInAnyOrder("value"));
   }
@@ -61,7 +75,9 @@ public class ListVariablesTest {
   /** Case |value| - 8 */
   @Test
   public void shouldListVariablesFunction7() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Subtraction(new Absolute(new Variable("value")), new Number(8));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, containsInAnyOrder("value"));
   }
@@ -69,7 +85,10 @@ public class ListVariablesTest {
   /** Case (5 - i) * 8 */
   @Test
   public void shouldListVariablesFunction8() {
-    final List<String> result = Collections.emptyList();
+    Function function = new Multiplication(new Subtraction(new Number(5),
+            new Variable("i")), new Number(8));
+    VariableManager variableManager = new VariableManager(function);
+    final List<String> result = variableManager.getVariables();
 
     assertThat(result, containsInAnyOrder("i"));
   }

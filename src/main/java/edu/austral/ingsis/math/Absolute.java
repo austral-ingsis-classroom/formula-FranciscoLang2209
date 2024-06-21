@@ -15,6 +15,7 @@ public class Absolute implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
+        base.accept(visitor);
     }
 
     public Function getBase() {

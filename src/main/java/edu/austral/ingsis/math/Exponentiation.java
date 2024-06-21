@@ -17,6 +17,8 @@ public class Exponentiation implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
+        base.accept(visitor);
+        exponent.accept(visitor);
     }
 
     public Function getBase() {

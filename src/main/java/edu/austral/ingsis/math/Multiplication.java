@@ -17,6 +17,8 @@ public class Multiplication implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
+        left.accept(visitor);
+        right.accept(visitor);
     }
 
     public Function getLeft() {

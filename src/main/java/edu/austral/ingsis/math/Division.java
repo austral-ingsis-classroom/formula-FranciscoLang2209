@@ -17,6 +17,8 @@ public class Division implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
+        numerator.accept(visitor);
+        denominator.accept(visitor);
     }
 
     public Function getNumerator() {
