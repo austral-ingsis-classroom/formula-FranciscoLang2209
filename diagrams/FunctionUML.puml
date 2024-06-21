@@ -1,0 +1,89 @@
+@startuml
+
+interface Function {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Sum {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Multiply {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Divide {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Subtract {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Exponentiation {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Root {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Absolute {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Number {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+class Variable {
+    + evaluate() : double
+    + accept(Visitor visitor)
+}
+
+interface Visitor {
+    + visit(Sum sum)
+    + visit(Product product)
+    + visit(Divide divide)
+    + visit(Subtract subtract)
+    + visit(Exponentiation exponentiation)
+    + visit(Root root)
+}
+
+class Printer {
+    + visit(Sum sum)
+    + visit(Product product)
+    + visit(Divide divide)
+    + visit(Subtract subtract)
+    + visit(Exponentiation exponentiation)
+    + visit(Root root)
+}
+
+Function <|.. Sum
+Function <|.. Multiply
+Function <|.. Divide
+Function <|.. Subtract
+Function <|.. Exponentiation
+Function <|.. Root
+Function <|.. Absolute
+Function <|.. Number
+Function <|.. Variable
+Visitor <|-- Printer
+
+Sum *-- Function
+Multiply *-- Function
+Divide *-- Function
+Subtract *-- Function
+Exponentiation *-- Function
+Root *-- Function
+Absolute *-- Function
+@enduml

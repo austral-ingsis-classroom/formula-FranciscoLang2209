@@ -11,6 +11,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction1() {
     final Double result = 4d;
+    Function function = new Addition(new Number(1), new Variable("x"));
+
 
     assertThat(result, equalTo(4d));
   }
