@@ -1,5 +1,6 @@
 package edu.austral.ingsis.math;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,6 @@ public class VariableManager {
     }
 
     public List<String> getVariables() {
-        return variables.keySet().stream().toList();
+        return new ArrayList<>(variables.keySet());
     }
 }
