@@ -86,4 +86,6 @@ Subtract *-- Function
 Exponentiation *-- Function
 Root *-- Function
 Absolute *-- Function
+
+Function -> Visitor
 @enduml
