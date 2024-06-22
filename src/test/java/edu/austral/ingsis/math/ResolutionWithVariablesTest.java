@@ -3,10 +3,9 @@ package edu.austral.ingsis.math;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 public class ResolutionWithVariablesTest {
 
@@ -36,8 +35,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction3() {
     final Double result = 12d;
-    Function function = new Multiplication(new Division(new Number(9), new Variable("x")),
-            new Variable("y"));
+    Function function =
+        new Multiplication(new Division(new Number(9), new Variable("x")), new Variable("y"));
     Map<String, Function> variables = new HashMap<>();
     variables.put("x", new Number(3));
     variables.put("y", new Number(4));
@@ -49,8 +48,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction4() {
     final Double result = 27d;
-    Function function = new Exponentiation(new Division(new Number(27), new Variable("a")),
-            new Variable("b"));
+    Function function =
+        new Exponentiation(new Division(new Number(27), new Variable("a")), new Variable("b"));
     Map<String, Function> variables = new HashMap<>();
     variables.put("a", new Number(9));
     variables.put("b", new Number(3));
@@ -95,8 +94,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction8() {
     final Double result = 24d;
-    Function function = new Multiplication(new Subtraction(new Number(5), new Variable("i")),
-            new Number(8));
+    Function function =
+        new Multiplication(new Subtraction(new Number(5), new Variable("i")), new Number(8));
     Map<String, Function> variables = new HashMap<>();
     variables.put("i", new Number(2));
 

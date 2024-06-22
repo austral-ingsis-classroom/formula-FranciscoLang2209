@@ -35,8 +35,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction3() {
     final String expected = "((9.0 / 2.0) * 3.0)";
-    Function function = new Multiplication(new Division(new Number(9), new Number(2)),
-            new Number(3));
+    Function function =
+        new Multiplication(new Division(new Number(9), new Number(2)), new Number(3));
     Printer printer = new Printer();
     function.accept(printer);
     final String result = printer.getResult();
@@ -48,8 +48,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction4() {
     final String expected = "((27.0 / 6.0) ^ 2.0)";
-    Function function = new Exponentiation(new Division(new Number(27), new Number(6)),
-            new Number(2));
+    Function function =
+        new Exponentiation(new Division(new Number(27), new Number(6)), new Number(2));
     Printer printer = new Printer();
     function.accept(printer);
     final String result = printer.getResult();
@@ -85,8 +85,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction8() {
     final String expected = "((5.0 - i) * 8.0)";
-    Function function = new Multiplication(new Subtraction(new Number(5), new Variable("i")),
-            new Number(8));
+    Function function =
+        new Multiplication(new Subtraction(new Number(5), new Variable("i")), new Number(8));
     Printer printer = new Printer();
     function.accept(printer);
     final String result = printer.getResult();
