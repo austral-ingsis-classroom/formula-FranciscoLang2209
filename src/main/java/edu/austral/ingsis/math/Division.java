@@ -1,5 +1,7 @@
 package edu.austral.ingsis.math;
 
+import java.util.Map;
+
 public class Division implements Function {
      Function numerator;
      Function denominator;
@@ -10,6 +12,11 @@ public class Division implements Function {
     }
 
     @Override
+    public double evaluate(Map<String, Function> variables) {
+        return numerator.evaluate(variables) / denominator.evaluate(variables);
+    }
+
+    @Override
     public double evaluate() {
         return numerator.evaluate() / denominator.evaluate();
     }
@@ -17,8 +24,6 @@ public class Division implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
-        numerator.accept(visitor);
-        denominator.accept(visitor);
     }
 
     public Function getNumerator() {

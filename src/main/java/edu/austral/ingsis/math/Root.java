@@ -1,10 +1,17 @@
 package edu.austral.ingsis.math;
 
+import java.util.Map;
+
 public class Root implements Function {
     Function base;
 
     public Root(Function base) {
         this.base = base;
+    }
+
+    @Override
+    public double evaluate(Map<String, Function> variables) {
+        return Math.sqrt(base.evaluate(variables));
     }
 
     @Override
@@ -15,7 +22,6 @@ public class Root implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
-        base.accept(visitor);
     }
 
     public Function getBase() {

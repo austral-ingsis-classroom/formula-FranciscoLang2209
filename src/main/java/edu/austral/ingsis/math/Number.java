@@ -1,10 +1,17 @@
 package edu.austral.ingsis.math;
 
+import java.util.Map;
+
 public class Number implements Function {
     double value;
 
     public Number(double value) {
         this.value = value;
+    }
+
+    @Override
+    public double evaluate(Map<String, Function> variables) {
+        return value;
     }
 
     @Override

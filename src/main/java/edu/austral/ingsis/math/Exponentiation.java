@@ -1,5 +1,7 @@
 package edu.austral.ingsis.math;
 
+import java.util.Map;
+
 public class Exponentiation implements Function {
     Function base;
     Function exponent;
@@ -10,6 +12,11 @@ public class Exponentiation implements Function {
     }
 
     @Override
+    public double evaluate(Map<String, Function> variables) {
+        return Math.pow(base.evaluate(variables), exponent.evaluate(variables));
+    }
+
+    @Override
     public double evaluate() {
         return Math.pow(base.evaluate(), exponent.evaluate());
     }
@@ -17,8 +24,6 @@ public class Exponentiation implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
-        base.accept(visitor);
-        exponent.accept(visitor);
     }
 
     public Function getBase() {

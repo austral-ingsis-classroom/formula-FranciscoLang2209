@@ -1,20 +1,26 @@
 package edu.austral.ingsis.math;
 
+import java.util.Map;
+
 public class Variable implements Function {
     private final String name;
-    private double value;
 
     public Variable(String name) {
         this.name = name;
     }
 
-    public void setValue(double value) {
-        this.value = value;
+    @Override
+    public double evaluate(Map<String, Function> variables) {
+        Function function = variables.get(name);
+        if (function == null) {
+            throw new IllegalStateException("Variable not initialized: " + name);
+        }
+        return function.evaluate(variables);
     }
 
     @Override
     public double evaluate() {
-        return value;
+        throw new IllegalStateException("Variable not initialized: " + name);
     }
 
     @Override

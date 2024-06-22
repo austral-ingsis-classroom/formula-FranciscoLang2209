@@ -21,14 +21,6 @@ public class VariableManager {
         }
     }
 
-    public void setVariableValue(String name, double value) {
-        Variable variable = variables.get(name);
-        if (variable == null) {
-            throw new IllegalArgumentException("Variable not found: " + name);
-        }
-        variable.setValue(value);
-    }
-
     public List<String> getVariables() {
         return variables.keySet().stream().toList();
     }

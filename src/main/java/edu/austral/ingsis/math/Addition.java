@@ -1,5 +1,7 @@
 package edu.austral.ingsis.math;
 
+import java.util.Map;
+
 public class Addition implements Function {
     Function left;
     Function right;
@@ -10,6 +12,11 @@ public class Addition implements Function {
     }
 
     @Override
+    public double evaluate(Map<String, Function> variables) {
+        return left.evaluate(variables) + right.evaluate(variables);
+    }
+
+    @Override
     public double evaluate() {
         return left.evaluate() + right.evaluate();
     }
@@ -17,8 +24,6 @@ public class Addition implements Function {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
-        left.accept(visitor);
-        right.accept(visitor);
     }
 
     public Function getLeft() {

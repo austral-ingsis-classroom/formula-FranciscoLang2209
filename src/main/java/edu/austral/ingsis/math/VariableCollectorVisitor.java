@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class VariableCollectorVisitor implements Visitor {
-    private Set<String> variableNames = new HashSet<>();
+    private final Set<String> variableNames = new HashSet<>();
 
     @Override
     public void visit(Addition sum) {
